@@ -950,6 +950,12 @@ bool FollowStreamDialog::follow(QString previous_filter, bool use_stream_index, 
 
     updateWidgets(false);
     endRetapPackets();
+
+    /* Restore the previous filter  */
+    if (prefs.restore_filter_after_following_stream) {
+        emit updateFilter(previous_filter_, TRUE);
+    }
+
     return true;
 }
 
